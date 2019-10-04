@@ -1,14 +1,13 @@
-import React, { useState, useEffect }   from "./node_modules/react"
+import React from "react"
 
 const Grid = (props) => {
 
     return (
         <React.Fragment>
-            
+            "hello"
         </React.Fragment>
         
     )
-
 }
 
 export default Grid
