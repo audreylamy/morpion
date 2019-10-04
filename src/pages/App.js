@@ -8,8 +8,7 @@ const App = () => {
   return (
     <GameContextProvider>
       {/* <GlobalStyles /> */}
-      <Grid>
-      </Grid>
+      <Grid />
     </GameContextProvider>
   );
 }

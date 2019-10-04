@@ -11,11 +11,11 @@ export const GameContext = createContext({
 
 export const GameContextProvider = (props) => {
 
-    const [grid, setGrid] = useState(initialContext.grid.generateGrid)
+    const [grid, setGrid] = useState(initialContext.grid)
     console.log(grid)
 
     return (
-        <GameContext.Provider>
+        <GameContext.Provider value={{grid}}>
             {props.children}
         </GameContext.Provider>
     )
