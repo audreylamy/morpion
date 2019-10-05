@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import { Grid } from "../Domains/grid"
 
 const initialContext = {
-    grid: Grid.generateGrid,
+    grid: Grid.generateGrid(),
 };
 
 export const GameContext = createContext({

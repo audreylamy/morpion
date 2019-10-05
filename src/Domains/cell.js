@@ -1,9 +1,13 @@
 export class Cell {
     
     constructor(clic, form, player) {
-        this.clic = false // true or false
-        this.form = null // cross or round or null
-        this.player = null // one or two or null
+        this.clic = clic// true or false
+        this.form = form// cross or round or null
+        this.player = player// one or two or null
+    }
+
+    static emptyCell() {
+        return new Cell(false, null, null);
     }
 
     static withCross(){
