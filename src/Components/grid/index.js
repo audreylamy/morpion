@@ -1,5 +1,7 @@
 import React, { useContext } from "react"
-import { GameContext } from '../../pages/GameContext';
+import Cell from "../cell/index"
+import { GameContext } from "../../pages/GameContext"
+import { WrapperGrid } from "./style"
 
 const Grid = () => {
 
@@ -8,7 +10,19 @@ const Grid = () => {
 
     return (
         <React.Fragment>
-            "hello"
+            <WrapperGrid column={grid.column}>
+                {
+                    grid.cell.map((c, i) => {
+                        return (
+                            <Cell 
+                                key={i}
+                                cell={c}
+                                column={grid.column}
+                            />
+                        )
+                    })
+                }
+            </WrapperGrid>
         </React.Fragment>
         
     )
