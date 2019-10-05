@@ -11,6 +11,7 @@ const useStateCellsGrid = (initGrid) => {
     return [grid, 
             (index, number) => {
                 var newGrid = grid.sendActionCell(index, number);
+                console.log(newGrid)
                 setGrid(newGrid)
             }, setGrid]
 }

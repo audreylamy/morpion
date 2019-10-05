@@ -19,7 +19,6 @@ export class Grid {
     }
 
     sendActionCell(index, player) {
-        console.log(player)
         const cells = this.cell
 
         if (player == 1)
@@ -28,6 +27,5 @@ export class Grid {
             cells[index] = Cell.withRound()
 
         return new Grid(3, cells)
-        console.log('sadasds', cells)
     }
 }
