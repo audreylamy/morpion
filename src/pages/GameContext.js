@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { Grid } from "../Domains/grid"
+import { Grid } from "../Class/grid"
 
 const initialContext = {
     grid: Grid.generateGrid(),
