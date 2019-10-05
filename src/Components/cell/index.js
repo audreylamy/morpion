@@ -1,10 +1,14 @@
 import React, { useContext } from "react"
 import { WrapperCell } from "./style"
 
-const Cell = ({key, cell, column}) => {
+const Cell = ({index, cell, onclick}) => {
+
+    const handleClick = (index) => {
+        onclick(index)
+    }
 
     return (
-        <WrapperCell>
+        <WrapperCell onClick={() => handleClick(index)}>
         
         </WrapperCell>
     )

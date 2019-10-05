@@ -5,8 +5,12 @@ import { WrapperGrid } from "./style"
 
 const Grid = () => {
 
-    const { grid } = useContext(GameContext);
-    console.log(grid)
+    const { grid, updateCellStatus, player, setPlayer } = useContext(GameContext);
+
+    const onClickCell = (index) => {
+        updateCellStatus(index, player)
+        setPlayer(player === 1 ? 2 : 1)
+    }
 
     return (
         <React.Fragment>
@@ -16,8 +20,9 @@ const Grid = () => {
                         return (
                             <Cell 
                                 key={i}
+                                index={i}
                                 cell={c}
-                                column={grid.column}
+                                onclick={(ev) => onClickCell(ev)}
                             />
                         )
                     })

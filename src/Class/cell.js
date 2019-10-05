@@ -14,7 +14,7 @@ export class Cell {
         return new Cell(true, 'cross', 1);
     }
 
-    static withoutRound() {
+    static withRound() {
         return new Cell(true, 'round', 2);
     }
 }
