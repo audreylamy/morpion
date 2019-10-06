@@ -12,7 +12,7 @@ const useStateCellsGrid = (initGrid) => {
             (index, player, numCross, numRound) => {
                 var newGrid = grid.sendActionCell(index, player);
                 if (numCross === 3 || numRound === 3)
-                    grid.checkWinner(index, player, numCross, numRound)
+                    grid.checkWinner(grid.cell, index, player)
                 console.log(newGrid)
                 setGrid(newGrid)
             }, setGrid]
