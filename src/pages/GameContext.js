@@ -11,9 +11,10 @@ const useStateCellsGrid = (initGrid) => {
     return [grid, 
             (index, player, numCross, numRound) => {
                 var newGrid = grid.sendActionCell(index, player);
+                var winner = 0
                 if (numCross === 3 || numRound === 3)
-                    grid.checkWinner(grid.cell, index, player)
-                console.log(newGrid)
+                    winner = grid.checkWinner(grid.cell, index, player)
+                console.log("Winner", winner)
                 setGrid(newGrid)
             }, setGrid]
 }
@@ -28,7 +29,6 @@ export const GameContextProvider = (props) => {
             [player, setPlayer] = useState(1),
             [cross, setCross] = useState(0),
             [round, setRound] = useState(0)
-    console.log(cross)
 
     return (
         <GameContext.Provider value={{grid, updateCellStatus, player, setPlayer, cross, setCross, round, setRound}}>

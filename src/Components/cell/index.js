@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { WrapperCell, WrapperSign } from "./style"
 
 const Cell = ({index, cell, onclick}) => {
@@ -9,7 +9,7 @@ const Cell = ({index, cell, onclick}) => {
         onclick(index)
     }
 
-    if (cell.form == null){
+    if (cell.form === null){
         return  <WrapperCell 
                     onClick={() => handleClick(index)}
                     onMouseEnter={() => setMouseEnter(true)}
@@ -17,7 +17,7 @@ const Cell = ({index, cell, onclick}) => {
                     mouseEnter={mouseEnter}
                 ></WrapperCell>
     }
-    else {
+    else if (cell.clic === false) {
         return (
             <WrapperCell 
                 onClick={() => handleClick(index)}
@@ -25,6 +25,14 @@ const Cell = ({index, cell, onclick}) => {
                 onMouseLeave={() => setMouseEnter(false)}
                 mouseEnter={mouseEnter}
             >
+                <WrapperSign>
+                    { cell.form === "cross" ? "x" : "o" }
+                </WrapperSign>
+            </WrapperCell>
+        )
+    } else {
+        return (
+            <WrapperCell>
                 <WrapperSign>
                     { cell.form === "cross" ? "x" : "o" }
                 </WrapperSign>
