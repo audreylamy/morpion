@@ -26,7 +26,7 @@ const Cell = ({index, cell, onclick}) => {
                 mouseEnter={mouseEnter}
             >
                 <WrapperSign>
-                    { cell.form == "cross" ? "x" : "o" }
+                    { cell.form === "cross" ? "x" : "o" }
                 </WrapperSign>
             </WrapperCell>
         )

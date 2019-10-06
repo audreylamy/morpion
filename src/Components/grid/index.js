@@ -5,11 +5,17 @@ import { WrapperGrid } from "./style"
 
 const Grid = () => {
 
-    const { grid, updateCellStatus, player, setPlayer } = useContext(GameContext);
+    const { grid, updateCellStatus, player, setPlayer, cross, setCross, round, setRound } = useContext(GameContext);
 
     const onClickCell = (index) => {
-        updateCellStatus(index, player)
+        console.log(grid.cell[index])
+        var numCross = cross
+        var numRound = round
+        player === 1 ? numCross = cross + 1 : numRound = round + 1
+        updateCellStatus(index, player, numCross, numRound)
         setPlayer(player === 1 ? 2 : 1)
+        player === 1 ? setCross(cross + 1) : setRound(round + 1)
+        
     }
 
     return (

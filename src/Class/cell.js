@@ -17,4 +17,15 @@ export class Cell {
     static withRound() {
         return new Cell(true, 'round', 2);
     }
+
+    get _clic() {
+        return this.clic
+    }
+
+    get status() {
+        if (this._clic) {
+            return 'touched';
+        }
+        return 'untouched';
+    }
 }

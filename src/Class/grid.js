@@ -21,11 +21,17 @@ export class Grid {
     sendActionCell(index, player) {
         const cells = this.cell
 
-        if (player == 1)
+        if (player === 1)
             cells[index] = Cell.withCross()
-        else if (player == 2)
+        else if (player === 2)
             cells[index] = Cell.withRound()
 
         return new Grid(3, cells)
+    }
+
+    checkWinner(index, player, numCross, numRound) {
+        console.log(index)
+
+        // return joueur gagnant
     }
 }
