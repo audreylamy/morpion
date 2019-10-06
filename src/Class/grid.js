@@ -10,12 +10,13 @@ export class Grid {
             cells.push(Cell.emptyCell())          
         }
         console.log(cells)
-        return new Grid(3, cells)
+        return new Grid(3, cells, null)
     }
     
-    constructor(column, cell) {
+    constructor(column, cell, winner) {
         this.column = column
         this.cell = cell
+        this.winner = winner
     }
 
     sendActionCell(index, player) {
@@ -26,7 +27,7 @@ export class Grid {
         else if (player === 2)
             cells[index] = Cell.withRound()
 
-        return new Grid(3, cells)
+        return new Grid(3, cells, null)
     }
 
     checkTop(index) {
@@ -72,6 +73,7 @@ export class Grid {
     }
 
     checkWinner(grid, indexCell, player) {
+        const cells = this.cell
         var array = []
         var form = player === 1 ? "cross" : "round"
         var countCell = 1
@@ -95,15 +97,15 @@ export class Grid {
             countCell++
         }
         if (array.length === 2 && ((array[0][0] === 'top' && array[1][0] === 'bottom') || (array[0][0] === 'left' && array[1][0] === 'right') || (array[0][0] === 'topRight' && array[1][0] === 'bottomLeft') || (array[0][0] === 'topLeft' && array[1][0] === 'bottomRight'))) {
-            return player
+            return new Grid(3, cells, player)
         } 
         else if (array.length === 1) {
             for (let cell of grid) {
                 if (countCell1 === array[0][1]) {
-                    if (this.findForm(array[0][1] + array[0][2], form, grid)) return player
+                    if (this.findForm(array[0][1] + array[0][2], form, grid)) return new Grid(3, cells, player)
                 }
                 countCell1++
             }
-        } else return 0
+        } else new Grid(3, cells, null)
     }
 }

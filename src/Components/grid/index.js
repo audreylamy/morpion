@@ -1,14 +1,14 @@
 import React, { useContext } from "react"
 import Cell from "../cell/index"
+import Winner from "../winner/index"
 import { GameContext } from "../../pages/GameContext"
-import { WrapperGrid } from "./style"
+import { WrapperGrid, WrapperWinner } from "./style"
 
 const Grid = () => {
 
     const { grid, updateCellStatus, player, setPlayer, cross, setCross, round, setRound } = useContext(GameContext);
 
     const onClickCell = (index) => {
-        console.log(grid.cell[index])
         var numCross = cross
         var numRound = round
         player === 1 ? numCross = cross + 1 : numRound = round + 1
@@ -34,6 +34,7 @@ const Grid = () => {
                     })
                 }
             </WrapperGrid>
+            <Winner grid={grid}/>
         </React.Fragment>
         
     )

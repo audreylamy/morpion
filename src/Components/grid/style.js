@@ -6,3 +6,7 @@ export const WrapperGrid = styled.div`
     flex-wrap: wrap;
     width: calc(100px * ${props => props.column})
 `
+
+export const WrapperWinner = styled.div`
+    color: red;
+`
